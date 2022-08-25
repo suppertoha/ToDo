@@ -71,7 +71,7 @@ function wrapperElement() {
       wrapperElement();
     });
   }
-}
+} 
 
 document.querySelector('#doneAction').addEventListener('click', () => {
   for (const itemElement of listElement) {
