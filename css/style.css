@@ -1,0 +1,201 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  border: none;
+}
+
+button:focus {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  font: 400 16px 'Gilroy', sans-serif;
+  color: #232323;
+  background: #fafafa;
+}
+
+a {
+  display: inline-block;
+  font: inherit;
+  color: inherit;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+a img {
+  border: none;
+  outline: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.container {
+  margin: 20px auto;
+  max-width: 1000px;
+  font: 400 16px 'Gilroy', sans-serif;
+  border: 1px solid #9e9c9c;
+}
+
+.card__header {
+  padding: 20px 10px;
+  background: #dadada;
+  border-bottom: 1px solid #9e9c9c;
+}
+
+.card__body {
+  padding: 20px;
+}
+
+.input-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+  width: 100%;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.btn-outline-primary {
+  border: 1px solid #337aa1;
+  width: 160px;
+  color: #337aa1;
+}
+
+.btn-outline-primary:hover {
+  background: #337aa1;
+  color: #fff;
+}
+
+.form-control {
+  width: 100%;
+  border: 1px solid #9e9c9c;
+  padding: 0 10px;
+  font-size: 18px;
+}
+
+.btn-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.btn-success {
+  background: #2aa536;
+}
+
+.btn-success:hover {
+  opacity: 0.8;
+}
+
+.btn-info {
+  background: #4b55c5;
+}
+
+.btn-info:hover {
+  opacity: 0.8;
+}
+
+.btn-danger {
+  background: #ec2424;
+}
+
+.btn-danger:hover {
+  opacity: 0.8;
+}
+
+.list-group-item {
+  border-top: 1px solid #9e9c9c;
+  font-size: 18px;
+  padding: 10px 20px;
+}
+
+.form-chick {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-check-input {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.btn-done {
+  width: 100px;
+  font-size: 14px;
+  border: 1px solid #337aa1;
+  color: #337aa1;
+  margin: 0 5px;
+}
+
+.btn-done:hover {
+  background: #337aa1;
+  color: #fff;
+}
+
+.btn-remove {
+  width: 100px;
+  font-size: 14px;
+  border: 1px solid #ec2424;
+  color: #ec2424;
+}
+
+.btn-remove:hover {
+  background: #ec2424;
+  color: #fff;
+}
+
+.todoDone {
+  text-decoration: line-through;
+  font-style: italic;
+  color: gray;
+}

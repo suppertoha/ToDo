@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>ToDo</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card__header">
+          <h1 class="card__title">Todo application</h1>
+        </div>
+
+        <div class="card__body">
+          <div class="input-group" id="actionPanel1">
+            <div class="input-group__prepend">
+              <span id="selectAllAction">
+                <button class="btn btn-outline-primary" type="button">Slect all</button>
+              </span>
+            </div>
+            <input type="text" class="form-control" id="input" />
+          </div>
+
+          <div id="actionPanel2">
+            <div class="btn-group btn-block">
+              <button type="button" class="btn btn-success" id="doneAction">Done</button>
+              <button type="button" class="btn btn-info" id="restireAction">Restore</button>
+              <button type="button" class="btn btn-danger" id="removeAction">Remove</button>
+            </div>
+          </div>
+        </div>
+
+        <ul class="list-group list-group-flush" id="list">
+          <!--<li class="list-group-item">
+            <div class="form-group form-chick">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1">
+              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+              <button type="button" class="btn btn-done">Done</button>
+              <button type="button" class="btn btn-remove">Remove</button>
+            </div>
+          </li>-->
+        </ul>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

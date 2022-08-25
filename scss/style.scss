@@ -1,0 +1,188 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+button,
+input,
+textarea {
+  //-moz-appearance: none;
+  //appearance: none;
+  //-webkit-appearance: none;
+  font-family: inherit;
+  border: none;
+}
+
+button:focus {
+  box-shadow: none !important;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  font: 400 16px 'Gilroy', sans-serif;
+  color: #232323;
+  background: #fafafa;
+}
+
+a {
+  display: inline-block;
+  font: inherit;
+  color: inherit;
+  transition: 300ms;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+a img {
+  border: none;
+  outline: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.container {
+  margin: 20px auto;
+  max-width: 1000px;
+  font: 400 16px 'Gilroy', sans-serif;
+  border: 1px solid rgb(158, 156, 156);
+}
+.card {
+  &__header {
+    padding: 20px 10px;
+    background: rgb(218, 218, 218);
+    border-bottom: 1px solid rgb(158, 156, 156);
+  }
+
+  &__title {
+  }
+
+  &__body {
+    padding: 20px;
+  }
+}
+.input-group {
+  display: flex;
+  margin-bottom: 5px;
+
+  &__prepend {
+  }
+}
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 300ms;
+}
+.btn-outline-primary {
+  border: 1px solid rgb(51, 122, 161);
+  width: 160px;
+  color: rgb(51, 122, 161);
+
+  &:hover {
+    background: rgb(51, 122, 161);
+    color: #fff;
+  }
+}
+.form-control {
+  width: 100%;
+  border: 1px solid rgb(158, 156, 156);
+  padding: 0 10px;
+  font-size: 18px;
+}
+.btn-group {
+}
+.btn-block {
+  display: flex;
+}
+.btn-success {
+  background: rgb(42, 165, 54);
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.btn-info {
+  background: rgb(75, 85, 197);
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.btn-danger {
+  background: rgb(236, 36, 36);
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.list-group {
+}
+.list-group-flush {
+}
+.list-group-item {
+  border-top: 1px solid rgb(158, 156, 156);
+  font-size: 18px;
+  padding: 10px 20px;
+}
+
+.form-group {
+}
+.form-chick {
+  display: flex;
+  align-items: center;
+}
+.form-check-input {
+  margin-right: 5px;
+  cursor: pointer;
+}
+.form-check-label {
+}
+.btn {
+}
+.btn-done {
+  width: 100px;
+  font-size: 14px;
+  border: 1px solid rgb(51, 122, 161);
+  color: rgb(51, 122, 161);
+  margin: 0 5px;
+  &:hover {
+    background: rgb(51, 122, 161);
+    color: #fff;
+  }
+}
+.btn-remove {
+  width: 100px;
+  font-size: 14px;
+  border: 1px solid rgb(236, 36, 36);
+  color: rgb(236, 36, 36);
+  &:hover {
+    background: rgb(236, 36, 36);
+    color: #fff;
+  }
+}
+
+.todoDone{
+  text-decoration: line-through;
+  font-style: italic;
+  color: gray;
+}
