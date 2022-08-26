@@ -112,7 +112,12 @@ ul {
   color: #fff;
 }
 
-.form-control {
+.change-input {
+  display: none;
+}
+
+.form-control, .active {
+  display: block;
   width: 100%;
   border: 1px solid #9e9c9c;
   padding: 0 10px;
@@ -150,11 +155,43 @@ ul {
 }
 
 .btn-change {
+  display: none;
   width: 100px;
   font-size: 14px;
-  border: 1px solid #0d440e;
-  color: #0d440e;
+  border: 1px solid #978112;
+  color: #978112;
   margin-left: 5px;
+}
+
+.btn-change.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.btn-save {
+  width: 100px;
+  font-size: 14px;
+  border: 1px solid #10c0a2;
+  color: #10c0a2;
+  margin-left: 5px;
+  display: none;
+}
+
+.btn-save.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
 }
 
 .list-group-item {

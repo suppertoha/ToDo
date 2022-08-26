@@ -103,12 +103,20 @@ ul {
     color: #fff;
   }
 }
-.form-control {
+
+.change-input{
+  display: none;
+}
+
+.form-control, .active {
+  display: block;
   width: 100%;
   border: 1px solid rgb(158, 156, 156);
   padding: 0 10px;
   font-size: 18px;
 }
+
+
 .btn-group {
 }
 .btn-block {
@@ -134,11 +142,34 @@ ul {
 }
 
 .btn-change{
+  display: none;
   width: 100px;
   font-size: 14px;
-  border: 1px solid #0d440e;
-  color:  #0d440e;
+  border: 1px solid #978112;
+  color:  #978112;
   margin-left: 5px;
+
+  &.active{
+    display: flex;
+  }
+}
+
+.btn-save{
+  width: 100px;
+  font-size: 14px;
+  border: 1px solid #10c0a2;
+  color:  #10c0a2;
+  margin-left: 5px;
+  display: none;
+  &.active{
+    display: flex;
+  }
+}
+
+.wrap{
+  display: flex;
+  width: 100%;
+  justify-content: end;
 }
 
 .list-group-item {

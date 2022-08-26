@@ -6,7 +6,6 @@ let listElement = [];
 
 inputElement.addEventListener('keydown', (e) => {
   if ((e.key === 'Enter' || e.keyCode === 13) && inputElement.value) {
-    console.log(e);
     listElement.unshift({
       content: inputElement.value,
       done: false,
@@ -29,6 +28,20 @@ btnClick.addEventListener('click', () => {
     wrapperElement();
   }
 });
+
+function start() {
+  if (((e.key === 'Enter' || e.keyCode === 13) && inputElement.value) || inputElement.value) {
+    console.log(e);
+    listElement.unshift({
+      content: inputElement.value,
+      done: false,
+      selected: false,
+    });
+
+    inputElement.value = '';
+    wrapperElement();
+  }
+}
 
 function wrapperElement() {
   ulElement.innerHTML = '';
@@ -59,47 +72,89 @@ function wrapperElement() {
     if (itemElement.done) {
       labelElement.className += ' todoDone';
     }
+    if (!itemElement.done) {
+      const doneElement = document.createElement('button');
+      doneElement.className = 'btn btn-done';
+      doneElement.setAttribute('type', 'button');
+      doneElement.innerText = 'Done';
+      divElement.append(doneElement);
 
-    const doneElement = document.createElement('button');
-    doneElement.className = 'btn btn-done';
-    doneElement.setAttribute('type', 'button');
-    doneElement.innerText = 'Done';
-    divElement.append(doneElement);
+      doneElement.addEventListener('click', () => {
+        itemElement.done = !itemElement.done;
+        wrapperElement();
+      });
+    } else {
+      const removeElement = document.createElement('button');
+      removeElement.className = 'btn btn-remove';
+      removeElement.setAttribute('type', 'button');
+      removeElement.innerText = 'Remove';
+      divElement.append(removeElement);
 
-    const removeElement = document.createElement('button');
-    removeElement.className = 'btn btn-remove';
-    removeElement.setAttribute('type', 'button');
-    removeElement.innerText = 'Remove';
-    divElement.append(removeElement);
+      removeElement.addEventListener('click', () => {
+        listElement = listElement.filter((curentItem) => curentItem !== itemElement);
+        wrapperElement();
+      });
+    }
+
+    const wrapElement = document.createElement('div');
+    wrapElement.className = 'wrap';
+    divElement.append(wrapElement);
+
+    const changeInputElement = document.createElement('input')
+    changeInputElement.className = 'change-input';
+    changeInputElement.setAttribute('type', 'text');
+    changeInputElement.setAttribute('placeholder', itemElement.content);
+    wrapElement.append(changeInputElement);
+    changeInputElement.addEventListener('keydown', function (e) {
+      //console.log(e);
+      if (((e.key === 'Enter') && inputElement.value) || inputElement.value) {
+        console.log(e);
+        changeInputElement.value = '';
+        wrapperElement();
+      }
+      
+    })
+  
 
     const changeElement = document.createElement('button');
-    changeElement.className = 'btn btn-change';
+    changeElement.className = 'btn btn-change active';
     changeElement.setAttribute('type', 'button');
     changeElement.innerText = 'Change';
-    divElement.append(changeElement);
+    wrapElement.append(changeElement);
 
-    
-    changeElement.addEventListener('click', () => {
-      console.log('ghhghg')
-      //1 при нажатии на кнопку поставить курсор на input 
-      //2 ввести значение и изменить это значение в массиве 
-      //3 по клику добавить это значение в label  
+    changeElement.addEventListener('click', function() {
       
+      //changeElement.classList.add('active');
+
+      if (this.classList.contains('active')) {
+        changeInputElement.classList.add('active');
+        saveElement.classList.add('active');
+        changeElement.classList.remove('active');
+      } else {
+        
+      }
     });
 
-    doneElement.addEventListener('click', () => {
-      itemElement.done = !itemElement.done;
+    const saveElement = document.createElement('button');
+    saveElement.className = 'btn btn-save';
+    saveElement.setAttribute('type', 'button');
+    saveElement.innerText = 'Save';
+    wrapElement.append(saveElement);
+
+    saveElement.addEventListener('click', () => {
+      const val = changeInputElement.value
+      //listElement.unshift(changeInputElement.value)
+      console.log(val)
+      //listElement = listElement.filter((itemElement) => itemElement.unshift(changeInputElement.value));
       wrapperElement();
+      saveElement.classList.remove('active');
+      changeInputElement.classList.remove('active');
     });
 
     checkboxElement.addEventListener('change', () => {
       itemElement.selected = checkboxElement.checked;
     });
-
-    removeElement.addEventListener('click', () => {
-      listElement = listElement.filter((curentItem) => curentItem !== itemElement);
-      wrapperElement();
-    });
+  
   }
 }
 
