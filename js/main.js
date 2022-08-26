@@ -1,15 +1,30 @@
 const inputElement = document.querySelector('#input');
 const ulElement = document.querySelector('.list-group');
+const btnClick = document.querySelector('#btn-enter');
+
 let listElement = [];
 
 inputElement.addEventListener('keydown', (e) => {
   if ((e.key === 'Enter' || e.keyCode === 13) && inputElement.value) {
+    console.log(e);
     listElement.unshift({
       content: inputElement.value,
       done: false,
       selected: false,
     });
 
+    inputElement.value = '';
+    wrapperElement();
+  }
+});
+
+btnClick.addEventListener('click', () => {
+  if (inputElement.value) {
+    listElement.unshift({
+      content: inputElement.value,
+      done: false,
+      selected: false,
+    });
     inputElement.value = '';
     wrapperElement();
   }
@@ -57,6 +72,21 @@ function wrapperElement() {
     removeElement.innerText = 'Remove';
     divElement.append(removeElement);
 
+    const changeElement = document.createElement('button');
+    changeElement.className = 'btn btn-change';
+    changeElement.setAttribute('type', 'button');
+    changeElement.innerText = 'Change';
+    divElement.append(changeElement);
+
+    
+    changeElement.addEventListener('click', () => {
+      console.log('ghhghg')
+      //1 при нажатии на кнопку поставить курсор на input 
+      //2 ввести значение и изменить это значение в массиве 
+      //3 по клику добавить это значение в label  
+      
+    });
+
     doneElement.addEventListener('click', () => {
       itemElement.done = !itemElement.done;
       wrapperElement();
@@ -67,11 +97,11 @@ function wrapperElement() {
     });
 
     removeElement.addEventListener('click', () => {
-      listElement = listElement.filter(curentItem => curentItem !== itemElement);
+      listElement = listElement.filter((curentItem) => curentItem !== itemElement);
       wrapperElement();
     });
   }
-} 
+}
 
 document.querySelector('#doneAction').addEventListener('click', () => {
   for (const itemElement of listElement) {
@@ -98,7 +128,7 @@ document.querySelector('#removeAction').addEventListener('click', () => {
   wrapperElement();
 });
 
-document.querySelector('.btn-outline-primary').addEventListener('click', () => {
+document.querySelector('#button-all').addEventListener('click', () => {
   for (const itemElement of listElement) {
     itemElement.selected = true;
   }

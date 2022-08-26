@@ -69,20 +69,17 @@ ul {
     border-bottom: 1px solid rgb(158, 156, 156);
   }
 
-  &__title {
-  }
-
   &__body {
     padding: 20px;
   }
+
 }
 .input-group {
   display: flex;
   margin-bottom: 5px;
 
-  &__prepend {
-  }
 }
+
 .btn {
   display: flex;
   justify-content: center;
@@ -135,10 +132,15 @@ ul {
     opacity: 0.8;
   }
 }
-.list-group {
+
+.btn-change{
+  width: 100px;
+  font-size: 14px;
+  border: 1px solid #0d440e;
+  color:  #0d440e;
+  margin-left: 5px;
 }
-.list-group-flush {
-}
+
 .list-group-item {
   border-top: 1px solid rgb(158, 156, 156);
   font-size: 18px;
