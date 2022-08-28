@@ -4,34 +4,17 @@ const btnClick = document.querySelector('#btn-enter');
 
 let listElement = [];
 
-inputElement.addEventListener('keydown', (e) => {
+inputElement.addEventListener('keydown', startTodo);
+btnClick.addEventListener('click', startTodo);
+
+function startTodo(e) {
   if ((e.key === 'Enter' || e.keyCode === 13) && inputElement.value) {
-    listElement.unshift({
-      content: inputElement.value,
-      done: false,
-      selected: false,
-    });
-
-    inputElement.value = '';
-    wrapperElement();
+    start();
+  } else if (this === btnClick && inputElement.value) {
+    start();
   }
-});
 
-btnClick.addEventListener('click', () => {
-  if (inputElement.value) {
-    listElement.unshift({
-      content: inputElement.value,
-      done: false,
-      selected: false,
-    });
-    inputElement.value = '';
-    wrapperElement();
-  }
-});
-
-function start() {
-  if (((e.key === 'Enter' || e.keyCode === 13) && inputElement.value) || inputElement.value) {
-    console.log(e);
+  function start() {
     listElement.unshift({
       content: inputElement.value,
       done: false,
@@ -69,6 +52,7 @@ function wrapperElement() {
     labelElement.innerText = itemElement.content;
     labelElement.style = `cursor:pointer; margin:0 10px`;
     divElement.append(labelElement);
+
     if (itemElement.done) {
       labelElement.className += ' todoDone';
     }
@@ -100,21 +84,12 @@ function wrapperElement() {
     wrapElement.className = 'wrap';
     divElement.append(wrapElement);
 
-    const changeInputElement = document.createElement('input')
+    const changeInputElement = document.createElement('input');
     changeInputElement.className = 'change-input';
     changeInputElement.setAttribute('type', 'text');
     changeInputElement.setAttribute('placeholder', itemElement.content);
     wrapElement.append(changeInputElement);
-    changeInputElement.addEventListener('keydown', function (e) {
-      //console.log(e);
-      if (((e.key === 'Enter') && inputElement.value) || inputElement.value) {
-        console.log(e);
-        changeInputElement.value = '';
-        wrapperElement();
-      }
-      
-    })
-  
+    changeInputElement.addEventListener('keydown', function (e) {});
 
     const changeElement = document.createElement('button');
     changeElement.className = 'btn btn-change active';
@@ -122,16 +97,13 @@ function wrapperElement() {
     changeElement.innerText = 'Change';
     wrapElement.append(changeElement);
 
-    changeElement.addEventListener('click', function() {
-      
+    changeElement.addEventListener('click', function () {
       //changeElement.classList.add('active');
 
       if (this.classList.contains('active')) {
         changeInputElement.classList.add('active');
         saveElement.classList.add('active');
         changeElement.classList.remove('active');
-      } else {
-        
       }
     });
 
@@ -142,10 +114,16 @@ function wrapperElement() {
     wrapElement.append(saveElement);
 
     saveElement.addEventListener('click', () => {
-      const val = changeInputElement.value
-      //listElement.unshift(changeInputElement.value)
-      console.log(val)
-      //listElement = listElement.filter((itemElement) => itemElement.unshift(changeInputElement.value));
+      const val = changeInputElement.value;
+
+      for (const itemElement of listElement) {
+        itemElement.content = val + index;
+
+        // удалить элемент из массива
+        // добавить элемент в массив
+      }
+
+      console.log(itemElement.content);
       wrapperElement();
       saveElement.classList.remove('active');
       changeInputElement.classList.remove('active');
@@ -154,7 +132,6 @@ function wrapperElement() {
     checkboxElement.addEventListener('change', () => {
       itemElement.selected = checkboxElement.checked;
     });
-  
   }
 }
 
