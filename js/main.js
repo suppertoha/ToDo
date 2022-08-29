@@ -89,7 +89,7 @@ function wrapperElement() {
     changeInputElement.setAttribute('type', 'text');
     changeInputElement.setAttribute('placeholder', itemElement.content);
     wrapElement.append(changeInputElement);
-    changeInputElement.addEventListener('keydown', function (e) {});
+    //changeInputElement.addEventListener('keydown', function (e) {});
 
     const changeElement = document.createElement('button');
     changeElement.className = 'btn btn-change active';
@@ -115,16 +115,9 @@ function wrapperElement() {
 
     saveElement.addEventListener('click', () => {
       const val = changeInputElement.value;
-
-      for (const itemElement of listElement) {
-        itemElement.content = val + index;
-
-        // удалить элемент из массива
-        // добавить элемент в массив
-      }
-
-      console.log(itemElement.content);
+      itemElement.content=val
       wrapperElement();
+      
       saveElement.classList.remove('active');
       changeInputElement.classList.remove('active');
     });
